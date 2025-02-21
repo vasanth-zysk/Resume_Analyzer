@@ -29,8 +29,15 @@ class JobRoleResource extends Resource
             ->schema([
                 TextInput::make('role_name')
                 ->string()
+<<<<<<< HEAD
                 ->required()
                 ->label('Role'),
+=======
+                ->autofocus()
+                ->required()
+                ->label('Role')
+                ->markAsRequired(false),
+>>>>>>> 3bd5c97 (Initial Commit)
 
                 Textarea::make('description'),
 
@@ -64,6 +71,10 @@ class JobRoleResource extends Resource
                     'linux' => 'Linux',
                 ])
                 ->multiple()
+<<<<<<< HEAD
+=======
+                ->markAsRequired(false)
+>>>>>>> 3bd5c97 (Initial Commit)
                 ->label('Skills'),
 
                 TextInput::make('required_experience')

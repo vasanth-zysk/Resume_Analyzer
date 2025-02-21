@@ -15,7 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('job_role_id')->constrained()->onDelete('cascade');
             $table->foreignId('resume_id')->constrained()->onDelete('cascade');
+<<<<<<< HEAD
             $table->decimal('match_percentage', 5, 2)->nullable();
+=======
+            $table->integer('match_percentage', 5, 2)->nullable()->autoIncrement(false);
+>>>>>>> 3bd5c97 (Initial Commit)
             $table->timestamps();
         });
     }

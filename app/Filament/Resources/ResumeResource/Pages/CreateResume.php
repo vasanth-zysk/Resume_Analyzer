@@ -13,6 +13,7 @@ class CreateResume extends CreateRecord
 {
     protected static string $resource = ResumeResource::class;
 
+<<<<<<< HEAD
     protected function afterCreated(): void
     {
         parent::afterCreated();
@@ -29,5 +30,10 @@ class CreateResume extends CreateRecord
             'score' => $result['score'],
             'skills' => implode(', ', $result['skills']),
         ]);
+=======
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+>>>>>>> 3bd5c97 (Initial Commit)
     }
 }

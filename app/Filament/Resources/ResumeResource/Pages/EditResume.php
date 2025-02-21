@@ -18,6 +18,7 @@ class EditResume extends EditRecord
     {
         return [
             Actions\DeleteAction::make(),
+<<<<<<< HEAD
             Action::make('analyze')
                 ->label('Analyze Resume')
                 ->action(function(Resume $record): void {
@@ -41,6 +42,31 @@ class EditResume extends EditRecord
                             ->send();
                     }
                 })
+=======
+        //     Action::make('analyze')
+        //         ->label('Analyze Resume')
+        //         ->action(function(Resume $record): void {
+        //             try {
+        //                 $resumeAnalyzer = new ResumeAnalyzer();
+        //                 $result = $resumeAnalyzer->analyze($record);
+        //                 $record->update([
+        //                     'score' => $result['score'],
+        //                     'skills' => implode(', ', $result['skills']),
+        //                 ]);
+
+        //                 Notification::make()
+        //                     ->success()
+        //                     ->title('Resume analyzed successfully')
+        //                     ->send();
+        //             } catch (\Exception $e) {
+        //                 Notification::make()
+        //                     ->danger()
+        //                     ->title('Failed to analyze resume')
+        //                     ->body($e->getMessage())
+        //                     ->send();
+        //             }
+        //         })
+>>>>>>> 3bd5c97 (Initial Commit)
         ];
     }
 }

@@ -13,5 +13,11 @@
         "postcss": "^8.4.47",
         "tailwindcss": "^3.4.13",
         "vite": "^6.0.11"
+<<<<<<< HEAD
+=======
+    },
+    "dependencies": {
+        "chartjs-plugin-datalabels": "^2.2.0"
+>>>>>>> 3bd5c97 (Initial Commit)
     }
 }
