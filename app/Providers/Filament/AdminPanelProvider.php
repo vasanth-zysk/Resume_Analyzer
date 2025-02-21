@@ -2,10 +2,7 @@
 
 namespace App\Providers\Filament;
 
-<<<<<<< HEAD
-=======
 use App\Filament\Resources\ResumeResource\Widgets\ProgressCircleWidget;
->>>>>>> 3bd5c97 (Initial Commit)
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
