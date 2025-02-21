@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_role_resume', function (Blueprint $table) {
+        Schema::create('skill_aliases', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('job_role_id')->constrained()->onDelete('cascade');
-            $table->foreignId('resume_id')->constrained()->onDelete('cascade');
-            $table->integer('match_percentage', 5, 2)->nullable()->autoIncrement(false);
+            $table->foreignId('possible_skill_id')->constrained()->onDelete('cascade');
+            $table->string('alias');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_role_resume');
+        Schema::dropIfExists('skill_aliases');
     }
 };

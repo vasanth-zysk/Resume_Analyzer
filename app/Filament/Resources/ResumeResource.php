@@ -61,6 +61,8 @@ class ResumeResource extends Resource
                 TextColumn::make('email'),
                 TextColumn::make('skills')
                     ->placeholder('No Skills found')
+                    ->badge()
+                    ->color('info')
                     ->wrap(),
                 TextColumn::make('match_percentage')
                     ->label('Match Percentage')
@@ -85,37 +87,38 @@ class ResumeResource extends Resource
                 ActionGroup::make([
                     Tables\Actions\EditAction::make(),
                     Tables\Actions\ViewAction::make(),
+                    TableAction::make('Analyze')
+                        ->label('Analyze Resume')
+                        // ->color('success')
+                        // ->button()
+                        ->action(function (Resume $record): void {
+                            try {
+                                $resumeAnalyzer = new ResumeAnalyzer();
+                                $result = $resumeAnalyzer->analyze($record);
+                                $record->update([
+                                    'score' => $result['score'],
+                                    'skills' => $result['skills'],
+                                    // 'skills' => implode(', ', $result['skills']),
+                                ]);
+                                $resumeAnalyzer->matchJobRoles($record);
+    
+                                Notification::make()
+                                    ->success()
+                                    ->title('Resume analyzed successfully')
+                                    ->send();
+                            } catch (\Exception $e) {
+                                Notification::make()
+                                    ->danger()
+                                    ->title('Failed to analyze resume')
+                                    ->body($e->getMessage())
+                                    ->send();
+                            }
+                        })
                 ])
                     ->button()
                     ->color('secondary'),
 
 
-                TableAction::make('Analyze')
-                    ->label('Analyze Resume')
-                    ->color('success')
-                    ->button()
-                    ->action(function (Resume $record): void {
-                        try {
-                            $resumeAnalyzer = new ResumeAnalyzer();
-                            $result = $resumeAnalyzer->analyze($record);
-                            $record->update([
-                                'score' => $result['score'],
-                                'skills' => implode(', ', $result['skills']),
-                            ]);
-                            $resumeAnalyzer->matchJobRoles($record);
-
-                            Notification::make()
-                                ->success()
-                                ->title('Resume analyzed successfully')
-                                ->send();
-                        } catch (\Exception $e) {
-                            Notification::make()
-                                ->danger()
-                                ->title('Failed to analyze resume')
-                                ->body($e->getMessage())
-                                ->send();
-                        }
-                    })
 
             ])
             ->bulkActions([

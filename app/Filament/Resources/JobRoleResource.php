@@ -38,6 +38,12 @@ class JobRoleResource extends Resource
 
                 Select::make('required_skills')
                 ->required()
+                ->createOptionForm([
+                    TextInput::make('name'),
+                ])
+                ->createOptionUsing(function (array $data) {
+                    return strtolower($data['name']);
+                })
                 // ->minItems(5)
                 ->options([
                     'html' => 'HTML5',
@@ -81,7 +87,9 @@ class JobRoleResource extends Resource
             ->columns([
                 TextColumn::make('role_name'),
                 TextColumn::make('description'),
-                TextColumn::make('required_skills'),
+                TextColumn::make('required_skills')
+                ->badge()
+                ->color('info'),
             ])
             ->filters([
                 //
