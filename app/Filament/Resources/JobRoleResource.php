@@ -44,33 +44,36 @@ class JobRoleResource extends Resource
                 ->createOptionUsing(function (array $data) {
                     return strtolower($data['name']);
                 })
+                ->options(function () {
+                    return \App\Models\PossibleSkill::orderBy('name')->pluck('name', 'name')->toArray();
+                })
                 // ->minItems(5)
-                ->options([
-                    'html' => 'HTML5',
-                    'css' => 'CSS3',
-                    'javascript' => 'JAVASCRIPT',
-                    'react' => 'React',
-                    'sql' => 'SQL',
-                    'php' => 'PHP',
-                    'laravel' => 'Laravel',
-                    'java' => 'java',
-                    'excel' => 'Excel',
-                    'python' => 'Python',
-                    'git' => 'GIT',
-                    'selenium' => 'Selenium',
-                    'junit' => 'Junit',
-                    'vuejs' => 'Vue.js',
-                    'angular' => 'Angular',
-                    'nodejs' => 'Node.js',
-                    'django' => 'Django',
-                    'flutter' => 'Flutter',
-                    'restapi' => 'RestAPI',
-                    'powerbi' => 'PowerBI',
-                    'kubernets' => 'Kubernets',
-                    'aws' => 'AWS',
-                    'azure' => 'Azure',
-                    'linux' => 'Linux',
-                ])
+                // ->options([
+                //     'html' => 'HTML5',
+                //     'css' => 'CSS3',
+                //     'javascript' => 'JAVASCRIPT',
+                //     'react' => 'React',
+                //     'sql' => 'SQL',
+                //     'php' => 'PHP',
+                //     'laravel' => 'Laravel',
+                //     'java' => 'java',
+                //     'excel' => 'Excel',
+                //     'python' => 'Python',
+                //     'git' => 'GIT',
+                //     'selenium' => 'Selenium',
+                //     'junit' => 'Junit',
+                //     'vuejs' => 'Vue.js',
+                //     'angular' => 'Angular',
+                //     'nodejs' => 'Node.js',
+                //     'django' => 'Django',
+                //     'flutter' => 'Flutter',
+                //     'restapi' => 'RestAPI',
+                //     'powerbi' => 'PowerBI',
+                //     'kubernets' => 'Kubernets',
+                //     'aws' => 'AWS',
+                //     'azure' => 'Azure',
+                //     'linux' => 'Linux',
+                // ])
                 ->multiple()
                 ->markAsRequired(false)
                 ->label('Skills'),
