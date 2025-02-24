@@ -199,7 +199,242 @@ class PossibleSkillsSeeder extends Seeder
             ['name' => 'Solidity', 'category' => 'Blockchain'],
             ['name' => 'Web3.js', 'category' => 'Blockchain'],
             ['name' => 'Smart Contracts', 'category' => 'Blockchain'],
-            ['name' => 'Ethereum', 'category' => 'Blockchain']
+            ['name' => 'Ethereum', 'category' => 'Blockchain'],
+
+            // Additional Programming Languages
+            ['name' => 'Perl', 'category' => 'Programming Languages'],
+            ['name' => 'Haskell', 'category' => 'Programming Languages'],
+            ['name' => 'Lua', 'category' => 'Programming Languages'],
+            ['name' => 'Assembly', 'category' => 'Programming Languages'],
+            ['name' => 'Groovy', 'category' => 'Programming Languages'],
+            ['name' => 'Fortran', 'category' => 'Programming Languages'],
+            ['name' => 'COBOL', 'category' => 'Programming Languages'],
+            ['name' => 'Dart', 'category' => 'Programming Languages'],
+            ['name' => 'F#', 'category' => 'Programming Languages'],
+            ['name' => 'Erlang', 'category' => 'Programming Languages'],
+            ['name' => 'Elixir', 'category' => 'Programming Languages'],
+
+            // Additional Frontend
+            ['name' => 'Alpine.js', 'category' => 'Frontend'],
+            ['name' => 'Stimulus.js', 'category' => 'Frontend'],
+            ['name' => 'Backbone.js', 'category' => 'Frontend'],
+            ['name' => 'WebGL', 'category' => 'Frontend'],
+            ['name' => 'PWA', 'category' => 'Frontend'],
+            ['name' => 'Web Components', 'category' => 'Frontend'],
+            ['name' => 'Shadow DOM', 'category' => 'Frontend'],
+            ['name' => 'Service Workers', 'category' => 'Frontend'],
+
+            // Additional Backend Technologies
+            ['name' => 'GraphQL Apollo', 'category' => 'Backend'],
+            ['name' => 'WebRTC', 'category' => 'Backend'],
+            ['name' => 'Apache', 'category' => 'Backend'],
+            ['name' => 'Nginx', 'category' => 'Backend'],
+            ['name' => 'WebSockets', 'category' => 'Backend'],
+            ['name' => 'ActiveMQ', 'category' => 'Backend'],
+            ['name' => 'ZeroMQ', 'category' => 'Backend'],
+            ['name' => 'Protocol Buffers', 'category' => 'Backend'],
+
+            // Additional DevOps Tools
+            ['name' => 'ArgoCD', 'category' => 'DevOps'],
+            ['name' => 'Helm', 'category' => 'DevOps'],
+            ['name' => 'SonarQube', 'category' => 'DevOps'],
+            ['name' => 'Vault', 'category' => 'DevOps'],
+            ['name' => 'Consul', 'category' => 'DevOps'],
+            ['name' => 'Nomad', 'category' => 'DevOps'],
+            ['name' => 'Podman', 'category' => 'DevOps'],
+            ['name' => 'Chef', 'category' => 'DevOps'],
+            ['name' => 'Puppet', 'category' => 'DevOps'],
+
+            // Infrastructure
+            ['name' => 'Load Balancing', 'category' => 'Infrastructure'],
+            ['name' => 'CDN', 'category' => 'Infrastructure'],
+            ['name' => 'DNS Management', 'category' => 'Infrastructure'],
+            ['name' => 'Network Security', 'category' => 'Infrastructure'],
+            ['name' => 'VPN', 'category' => 'Infrastructure'],
+            ['name' => 'Firewall Configuration', 'category' => 'Infrastructure'],
+
+            // Additional Cloud Services
+            ['name' => 'Heroku', 'category' => 'Cloud'],
+            ['name' => 'DigitalOcean', 'category' => 'Cloud'],
+            ['name' => 'Linode', 'category' => 'Cloud'],
+            ['name' => 'OpenStack', 'category' => 'Cloud'],
+            ['name' => 'Cloudflare', 'category' => 'Cloud'],
+            ['name' => 'VMware Cloud', 'category' => 'Cloud'],
+
+            // Additional Security
+            ['name' => 'OWASP', 'category' => 'Security'],
+            ['name' => 'Encryption', 'category' => 'Security'],
+            ['name' => 'Security Auditing', 'category' => 'Security'],
+            ['name' => 'Vulnerability Assessment', 'category' => 'Security'],
+            ['name' => 'Identity Management', 'category' => 'Security'],
+            ['name' => 'Cybersecurity', 'category' => 'Security'],
+            ['name' => 'SIEM', 'category' => 'Security'],
+
+            // Business Intelligence
+            ['name' => 'Power BI', 'category' => 'Business Intelligence'],
+            ['name' => 'Tableau', 'category' => 'Business Intelligence'],
+            ['name' => 'Looker', 'category' => 'Business Intelligence'],
+            ['name' => 'QlikView', 'category' => 'Business Intelligence'],
+            ['name' => 'SSRS', 'category' => 'Business Intelligence'],
+            ['name' => 'SSIS', 'category' => 'Business Intelligence'],
+
+            // Additional Testing
+            ['name' => 'Load Testing', 'category' => 'Testing'],
+            ['name' => 'Performance Testing', 'category' => 'Testing'],
+            ['name' => 'Security Testing', 'category' => 'Testing'],
+            ['name' => 'API Testing', 'category' => 'Testing'],
+            ['name' => 'Integration Testing', 'category' => 'Testing'],
+            ['name' => 'Cucumber', 'category' => 'Testing'],
+            ['name' => 'TestRail', 'category' => 'Testing'],
+
+            // IT Service Management
+            ['name' => 'ITIL', 'category' => 'IT Service Management'],
+            ['name' => 'ServiceNow', 'category' => 'IT Service Management'],
+            ['name' => 'BMC Remedy', 'category' => 'IT Service Management'],
+            ['name' => 'Change Management', 'category' => 'IT Service Management'],
+            ['name' => 'Incident Management', 'category' => 'IT Service Management'],
+
+            // Enterprise Software
+            ['name' => 'SAP', 'category' => 'Enterprise Software'],
+            ['name' => 'Oracle ERP', 'category' => 'Enterprise Software'],
+            ['name' => 'Salesforce', 'category' => 'Enterprise Software'],
+            ['name' => 'Workday', 'category' => 'Enterprise Software'],
+            ['name' => 'Microsoft Dynamics', 'category' => 'Enterprise Software'],
+            ['name' => 'PeopleSoft', 'category' => 'Enterprise Software'],
+
+            // Database Languages & Skills
+            ['name' => 'SQL', 'category' => 'Database Languages'],
+            ['name' => 'PL/SQL', 'category' => 'Database Languages'],
+            ['name' => 'T-SQL', 'category' => 'Database Languages'],
+            ['name' => 'NoSQL', 'category' => 'Database Languages'],
+            ['name' => 'Database Design', 'category' => 'Database Skills'],
+            ['name' => 'Database Administration', 'category' => 'Database Skills'],
+            ['name' => 'Database Optimization', 'category' => 'Database Skills'],
+            ['name' => 'Database Migration', 'category' => 'Database Skills'],
+            ['name' => 'Data Modeling', 'category' => 'Database Skills'],
+            ['name' => 'Query Optimization', 'category' => 'Database Skills'],
+            ['name' => 'Stored Procedures', 'category' => 'Database Skills'],
+            ['name' => 'Triggers', 'category' => 'Database Skills'],
+            ['name' => 'Views', 'category' => 'Database Skills'],
+            ['name' => 'Indexing', 'category' => 'Database Skills'],
+            ['name' => 'Data Warehousing', 'category' => 'Database Skills'],
+
+            // Additional Programming Concepts
+            ['name' => 'Object-Oriented Programming', 'category' => 'Programming Concepts'],
+            ['name' => 'Functional Programming', 'category' => 'Programming Concepts'],
+            ['name' => 'Procedural Programming', 'category' => 'Programming Concepts'],
+            ['name' => 'Concurrent Programming', 'category' => 'Programming Concepts'],
+            ['name' => 'Parallel Programming', 'category' => 'Programming Concepts'],
+            ['name' => 'Design Patterns', 'category' => 'Programming Concepts'],
+            ['name' => 'SOLID Principles', 'category' => 'Programming Concepts'],
+            ['name' => 'Clean Code', 'category' => 'Programming Concepts'],
+            ['name' => 'Code Review', 'category' => 'Programming Concepts'],
+            ['name' => 'Debugging', 'category' => 'Programming Concepts'],
+            
+            // Markup & Style Languages
+            ['name' => 'XML', 'category' => 'Markup Languages'],
+            ['name' => 'XHTML', 'category' => 'Markup Languages'],
+            ['name' => 'Markdown', 'category' => 'Markup Languages'],
+            ['name' => 'LaTeX', 'category' => 'Markup Languages'],
+            ['name' => 'YAML', 'category' => 'Markup Languages'],
+            ['name' => 'JSON', 'category' => 'Data Formats'],
+            ['name' => 'CSS3', 'category' => 'Style Languages'],
+            ['name' => 'Less', 'category' => 'Style Languages'],
+            ['name' => 'Stylus', 'category' => 'Style Languages'],
+
+            // Software Development Tools
+            ['name' => 'Visual Studio', 'category' => 'Development Tools'],
+            ['name' => 'Sublime Text', 'category' => 'Development Tools'],
+            ['name' => 'Atom', 'category' => 'Development Tools'],
+            ['name' => 'NetBeans', 'category' => 'Development Tools'],
+            ['name' => 'PyCharm', 'category' => 'Development Tools'],
+            ['name' => 'WebStorm', 'category' => 'Development Tools'],
+            ['name' => 'PhpStorm', 'category' => 'Development Tools'],
+            ['name' => 'Android Studio', 'category' => 'Development Tools'],
+            ['name' => 'Xcode', 'category' => 'Development Tools'],
+
+            // Build Tools & Package Managers
+            ['name' => 'Maven', 'category' => 'Build Tools'],
+            ['name' => 'Gradle', 'category' => 'Build Tools'],
+            ['name' => 'Ant', 'category' => 'Build Tools'],
+            ['name' => 'npm', 'category' => 'Package Managers'],
+            ['name' => 'Yarn', 'category' => 'Package Managers'],
+            ['name' => 'Composer', 'category' => 'Package Managers'],
+            ['name' => 'pip', 'category' => 'Package Managers'],
+            ['name' => 'NuGet', 'category' => 'Package Managers'],
+            ['name' => 'Homebrew', 'category' => 'Package Managers'],
+
+            // Operating Systems & Shell
+            ['name' => 'Linux Administration', 'category' => 'Operating Systems'],
+            ['name' => 'Windows Server', 'category' => 'Operating Systems'],
+            ['name' => 'macOS', 'category' => 'Operating Systems'],
+            ['name' => 'Unix', 'category' => 'Operating Systems'],
+            ['name' => 'Shell Scripting', 'category' => 'Shell'],
+            ['name' => 'Bash', 'category' => 'Shell'],
+            ['name' => 'PowerShell', 'category' => 'Shell'],
+            ['name' => 'Zsh', 'category' => 'Shell'],
+            ['name' => 'Command Line', 'category' => 'Shell'],
+
+            // Networking
+            ['name' => 'TCP/IP', 'category' => 'Networking'],
+            ['name' => 'HTTP/HTTPS', 'category' => 'Networking'],
+            ['name' => 'FTP/SFTP', 'category' => 'Networking'],
+            ['name' => 'SSH', 'category' => 'Networking'],
+            ['name' => 'DNS', 'category' => 'Networking'],
+            ['name' => 'DHCP', 'category' => 'Networking'],
+            ['name' => 'Network Security', 'category' => 'Networking'],
+            ['name' => 'Routing Protocols', 'category' => 'Networking'],
+            ['name' => 'VPN Configuration', 'category' => 'Networking'],
+
+            // Web Servers & Services
+            ['name' => 'Apache HTTP Server', 'category' => 'Web Servers'],
+            ['name' => 'Nginx Web Server', 'category' => 'Web Servers'],
+            ['name' => 'IIS', 'category' => 'Web Servers'],
+            ['name' => 'Tomcat', 'category' => 'Web Servers'],
+            ['name' => 'Load Balancers', 'category' => 'Web Services'],
+            ['name' => 'Reverse Proxy', 'category' => 'Web Services'],
+            ['name' => 'Web Caching', 'category' => 'Web Services'],
+            ['name' => 'SSL Certificates', 'category' => 'Web Services'],
+
+            // Data Analysis & Processing
+            ['name' => 'Excel (Advanced)', 'category' => 'Data Analysis'],
+            ['name' => 'Statistical Analysis', 'category' => 'Data Analysis'],
+            ['name' => 'Data Cleaning', 'category' => 'Data Analysis'],
+            ['name' => 'ETL', 'category' => 'Data Processing'],
+            ['name' => 'Data Integration', 'category' => 'Data Processing'],
+            ['name' => 'Data Migration', 'category' => 'Data Processing'],
+            ['name' => 'Data Quality', 'category' => 'Data Processing'],
+            
+            // API & Integration
+            ['name' => 'API Development', 'category' => 'API'],
+            ['name' => 'API Documentation', 'category' => 'API'],
+            ['name' => 'REST API', 'category' => 'API'],
+            ['name' => 'SOAP API', 'category' => 'API'],
+            ['name' => 'Microservices Architecture', 'category' => 'API'],
+            ['name' => 'API Gateway', 'category' => 'API'],
+            ['name' => 'API Security', 'category' => 'API'],
+            ['name' => 'API Testing', 'category' => 'API'],
+            ['name' => 'Swagger/OpenAPI', 'category' => 'API'],
+
+            // Virtualization & Containerization
+            ['name' => 'Virtual Machines', 'category' => 'Virtualization'],
+            ['name' => 'VirtualBox', 'category' => 'Virtualization'],
+            ['name' => 'VMware ESXi', 'category' => 'Virtualization'],
+            ['name' => 'Hyper-V', 'category' => 'Virtualization'],
+            ['name' => 'Container Orchestration', 'category' => 'Containerization'],
+            ['name' => 'Docker Compose', 'category' => 'Containerization'],
+            ['name' => 'Docker Swarm', 'category' => 'Containerization'],
+            ['name' => 'Container Security', 'category' => 'Containerization'],
+
+            // Additional Commonly Listed Skills
+            ['name' => 'Regular Expressions', 'category' => 'Programming Skills'],
+            ['name' => 'Version Control', 'category' => 'Development Skills'],
+            ['name' => 'Code Documentation', 'category' => 'Development Skills'],
+            ['name' => 'Technical Documentation', 'category' => 'Documentation'],
+            ['name' => 'Software Architecture', 'category' => 'Architecture'],
+            ['name' => 'Problem Solving', 'category' => 'Soft Skills'],
+            ['name' => 'Analytical Skills', 'category' => 'Soft Skills'],
+            ['name' => 'Team Collaboration', 'category' => 'Soft Skills']
         ];
 
         DB::table('possible_skills')->insert($skills);

@@ -21,9 +21,18 @@ class ResumeAnalyzer
         // Log::debug('Processing resume file', ['file_path' => $resume->file_path]);
 
         $text = $this->parseResume(storage_path('app/public/' . $resume->file_path));
+        $resumeWords = preg_split('/\s+/', strtolower($text));
+        $resumeWords = array_map('trim', $resumeWords);
+        $resumeWords = array_map(fn($word) => trim($word, ".,:;!?()[]{}"), $resumeWords);
+        
+
+
+
+        // dump($text);
+        // dump($resumeWords);
         // Log::debug('Parsed text preview', ['text' => substr($text, 0, 200) . '...']);
 
-        $skills = $this->extractSkills($text);
+        $skills = $this->extractSkills($resumeWords);
         // Log::debug('Extracted skills', ['skills' => $skills]);
 
         $experience = $this->extractExperience($text);
@@ -33,18 +42,17 @@ class ResumeAnalyzer
         // Log::debug('Calculated score', ['score' => $score]);
 
         // Log::info('✅ Resume analysis completed', [
-            // 'skills' => $skills,
-            // 'experience' => $experience,
-            // 'score' => $score
+        // 'skills' => $skills,
+        // 'experience' => $experience,
+        // 'score' => $score
         // ]);
-        
+
         // $this->matchJobRoles($resume);
         return [
             'skills' => $skills,
             'experience' => $experience,
             'score' => $score,
         ];
-
     }
 
     private function parseResume($filePath)
@@ -56,14 +64,16 @@ class ResumeAnalyzer
 
     private function extractSkills($text)
     {
-        $possibleSkills = ['PHP', 'Laravel', 'SQL', 'JavaScript', 'Python', 'HTML', 'CSS', 'java'];
-        $foundSkills = [];
+        $possibleSkills = \App\Models\PossibleSkill::pluck('name')->toArray();
+        // dd($possibleSkills);
+        $foundSkills = array_unique(array_values(array_intersect(array_map('strtolower', $text), array_map('strtolower', $possibleSkills))));
+        // dd($foundSkills);
 
-        foreach ($possibleSkills as $skill) {
-            if (stripos($text, $skill) !== false) {
-                $foundSkills[] = $skill;
-            }
-        }
+        // foreach ($possibleSkills as $skill) {
+        //     if (stripos($text, $skill) !== false) {
+        //         $foundSkills[] = $skill;
+        //     }
+        // }
 
         return $foundSkills;
     }
@@ -76,19 +86,20 @@ class ResumeAnalyzer
 
     private function calculateScore($skills, $experience)
     {
-        return (count($skills) * 0.6 + ($experience * 0.4)/1)*100;
+        return (count($skills) * 0.6 + ($experience * 0.4) / 1) * 100;
     }
 
     public function matchJobRoles($resume)
     {
         // Get extracted skills from the resume
-        $resumeSkills = is_array($resume->skills) 
-            ? $resume->skills 
+        $resumeSkills = is_array($resume->skills)
+            ? $resume->skills
             : array_map('trim', explode(',', (string)$resume->skills));
 
-            // dump($resumeSkills);
+        // dump($resumeSkills);
 
         if (empty($resumeSkills)) {
+            DB::table('job_role_resume')->where('resume_id', $resume->id)->delete();
             Log::warning('No skills found in resume', ['resume_id' => $resume->id]);
             return [];
         }
@@ -115,16 +126,16 @@ class ResumeAnalyzer
             }
 
             // Normalize skills for comparison
-            $normalizedResumeSkills = array_map(function($skill) {
+            $normalizedResumeSkills = array_map(function ($skill) {
                 return strtolower(trim($skill));
             }, $resumeSkills);
 
-            $normalizedRequiredSkills = array_map(function($skill) {
+            $normalizedRequiredSkills = array_map(function ($skill) {
                 return strtolower(trim($skill));
             }, $requiredSkills);
 
             $commonSkills = array_intersect($normalizedRequiredSkills, $normalizedResumeSkills);
-            
+
             // Calculate match percentage
             $matchPercentage = (count($commonSkills) / count($requiredSkills)) * 100;
 
@@ -144,9 +155,9 @@ class ResumeAnalyzer
         }
 
         // Sort matching roles by percentage in descending order
-        usort($matchingRoles, function($a, $b) {
-            return $b['match_percentage'] <=> $a['match_percentage'];
-        });
+        // usort($matchingRoles, function ($a, $b) {
+        //     return $b['match_percentage'] <=> $a['match_percentage'];
+        // });
 
         // Keep only the best match
         $matchingRoles = [array_shift($matchingRoles)];
