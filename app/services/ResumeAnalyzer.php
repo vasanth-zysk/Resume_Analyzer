@@ -86,7 +86,7 @@ class ResumeAnalyzer
 
     private function calculateScore($skills, $experience)
     {
-        return (count($skills) * 0.6 + ($experience * 0.4) / 1) * 100;
+        return ((count($skills) * 0.6 + ($experience * 0.4)) / 10) * 100;
     }
 
     public function matchJobRoles($resume)
@@ -136,6 +136,8 @@ class ResumeAnalyzer
 
             $commonSkills = array_intersect($normalizedRequiredSkills, $normalizedResumeSkills);
 
+            // dd($commonSkills);
+
             // Calculate match percentage
             $matchPercentage = (count($commonSkills) / count($requiredSkills)) * 100;
 
@@ -165,6 +167,8 @@ class ResumeAnalyzer
         // Insert into pivot table (job_role_resume)
         DB::table('job_role_resume')->where('resume_id', $resume->id)->delete();
         DB::table('job_role_resume')->insert($matchingRoles);
+
+        // dd($matchingRoles);
 
         return $matchingRoles;
     }

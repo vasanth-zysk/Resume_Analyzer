@@ -46,10 +46,10 @@ class ResumeResource extends Resource
                     ->markAsRequired(false),
                 TextInput::make('skills')
                     ->disabled()
-                    ->visibleOn('edit'),
+                    ->visibleOn('view'),
                 TextInput::make('score')
                     ->disabled()
-                    ->visibleOn('edit'),
+                    ->visibleOn('view'),
             ]);
     }
 
