@@ -21,9 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Filament::registerRenderHook(
-            'head.end',
-            fn () => '<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>'
-        );
+        //
     }
 }
