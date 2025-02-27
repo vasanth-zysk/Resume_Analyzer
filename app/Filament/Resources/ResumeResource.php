@@ -6,7 +6,9 @@ use App\Filament\Resources\ResumeResource\Pages;
 use App\Filament\Resources\ResumeResource\Pages\EditResume;
 use App\Filament\Resources\ResumeResource\RelationManagers;
 use App\Filament\Resources\ResumeResource\Widgets\ProgressCircleWidget;
+use App\Models\JobRole;
 use App\Models\Resume;
+use App\Services\ResumeAnalysisService;
 use App\Services\ResumeAnalyzer;
 use Faker\Core\Color;
 use Filament\Tables\Actions\ActionGroup;
@@ -89,6 +91,7 @@ class ResumeResource extends Resource
                     Tables\Actions\ViewAction::make(),
                     TableAction::make('Analyze')
                         ->label('Analyze Resume')
+                        ->icon('heroicon-o-chart-bar-square')
                         // ->color('success')
                         // ->button()
                         ->action(function (Resume $record): void {
@@ -113,7 +116,12 @@ class ResumeResource extends Resource
                                     ->body($e->getMessage())
                                     ->send();
                             }
-                        })
+                        }),
+                        // TableAction::make('Analyze With AI')
+                        // ->label('AI Analyze')
+                        // ->action(function (Resume $record): void {
+                            
+                        // })
                 ])
                     ->button()
                     ->color('secondary'),

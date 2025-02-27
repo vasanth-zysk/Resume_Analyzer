@@ -19,6 +19,21 @@ class Resume extends Model
         'skills',
     ];
 
+    // protected static function boot()
+    // {
+    //     // parent::boot();
+
+    //     // static::updated(function ($resume) {
+    //     //     if ($resume->isDirty('file_path')) {
+    //     //         $resume->skills = null;
+    //     //         $resume->score = null;
+    //     //         $resume->needs_analysis = true;
+    //     //         $resume->jobRoles()->detach();
+    //     //         $resume->save();
+    //     //     }
+    //     // });
+    // }
+
     public function jobRoles()
     {
         return $this->belongsToMany(JobRole::class)

@@ -1,5 +1,8 @@
 <?php
 
+// Set execution time limit to 300 seconds (5 minutes)
+set_time_limit(300);
+
 use Illuminate\Http\Request;
 
 define('LARAVEL_START', microtime(true));
