@@ -9,13 +9,14 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Log;
 
 class CandidateMatchingWidget extends Widget
 {
     protected static ?string $heading = 'Candidate Matching';
     protected int|string|array $columnSpan = 'full';
 
-    // ✅ Define the table
+    // Define the table
     public function table(Table $table): Table
     {
         return $table
@@ -25,17 +26,27 @@ class CandidateMatchingWidget extends Widget
                 Tables\Columns\TextColumn::make('jobRoles.role_name')->label('Matching Role'),
                 Tables\Columns\TextColumn::make('match_percentage')
                     ->label('Match %'),
-                    // ->sortable(),
+                // ->sortable(),
             ])
             ->filters([
                 SelectFilter::make('job_role')
                     ->label('Filter by Job Role')
+                    // ->native(false)
                     ->options(JobRole::pluck('role_name', 'id')->toArray())
                     ->query(function (Builder $query, $data) {
-                        if (!empty($data)) {
+                        // dump($data);
+                        $jobRoleId = data_get($data, 'value'); // ✅ Extract the correct value
+                        // dd($jobRoleId);
+                        Log::info("Filter Received: " . json_encode($data));
+                        Log::info("Extracted Job Role ID: " . ($jobRoleId ?? 'None'));
+
+                        if ($jobRoleId !== null && $jobRoleId !== '') {
+                            Log::info("Applying filter for job_role ID: ");
                             $query->whereHas('jobRoles', function ($q) use ($data) {
                                 $q->where('job_roles.id', $data);
                             });
+                        } else {
+                            Log::info("No filter selected. Showing all candidates.");
                         }
                     }),
             ]);
@@ -52,6 +63,3 @@ class CandidateMatchingWidget extends Widget
             ->orderBy('job_role_resume.match_percentage', 'desc');
     }
 }
-
-
-

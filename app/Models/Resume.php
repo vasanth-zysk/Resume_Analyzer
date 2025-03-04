@@ -36,7 +36,7 @@ class Resume extends Model
 
     public function jobRoles()
     {
-        return $this->belongsToMany(JobRole::class)
+        return $this->belongsToMany(JobRole::class, 'job_role_resume', 'resume_id', 'job_role_id')
             ->withPivot('match_percentage')        
             ->withTimestamps();
     }
